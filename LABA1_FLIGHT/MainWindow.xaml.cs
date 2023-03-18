@@ -24,5 +24,14 @@ namespace LABA1_FLIGHT
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (FlightModel model = new FlightModel())
+            {
+                model.Tickets.ToArray();
+            }
+
+        }
     }
 }
