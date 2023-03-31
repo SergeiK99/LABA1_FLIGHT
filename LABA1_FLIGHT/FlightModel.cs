@@ -3,6 +3,9 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
 
 
@@ -19,8 +22,10 @@
         {
         }
         public virtual DbSet<Ticket> Tickets { get; set; }
-
-
+        public virtual DbSet<SeatCategory> SeatCategories { get; set; }
+        public virtual DbSet<Destination> Destinations { get; set; }
+        public virtual DbSet<Flight> Flights { get; set; }
+        public virtual DbSet<Route> Routes { get; set; }
 
         // Добавьте DbSet для каждого типа сущности, который требуется включить в модель. Дополнительные сведения 
         // о настройке и использовании модели Code First см. в статье http://go.microsoft.com/fwlink/?LinkId=390109.
@@ -33,36 +38,43 @@
     //    public int Id { get; set; }
     //    public string Name { get; set; }
     //}
-    /*public class Ticket
-    {
-        public int Id { get; set; } // свойство Id, представляющее первичный ключ таблицы
-        public int FlightNumber { get; set; } // номер рейса
-        public string Destination { get; set; } // пункт назначения
-        public DateTime DepartureDate { get; set; } // дата отправления
-        public bool DomesticFlight { get; set; } // признак внутреннего рейса (true - внутри страны, false - зарубежный)
-        public int SeatId { get; set; }
-        public Seat Seat { get; set; }
-    }*/
+
     public class Destination
     {
         public int Id { get; set; }
+        [Required, MaxLength(50)]
         public string CityName { get; set; }
+        public virtual Route Route { get; set; }
     }
     public class Route
     {
         public int Id { get; set; }
-        //todo: коллекция Destination
-        public int DestinationId { get; set; }
-
-        //todo: коллекция Flight
+        [Required, MaxLength(20)]
         public string RouteNumber { get; set; }
+        //todo: коллекция Destination +
+        public virtual ICollection<Destination> Destinations { get; set; }
+        public Route()
+        {
+            Destinations = new List<Destination>();
+        }
+
+        //todo: коллекция Flight +
+        public virtual ICollection<Flight> Flights { get; set; }
+        /*public Route()
+        {
+            Flights = new List<Flight>();
+        }*/
+        
 
     }
     public class Flight
     {
         public int Id { get; set; }
-        public int TotalSeats { get; set; }
-        //вместо тотал ситс разбить на места по категориям
+        [Required, Range(1,900)]
+        public int PurchasedSeats { get; set; }
+        [Required, Range(1, 900)]
+        public int ReservedSeats { get; set; }
+        //вместо тотал ситс разбить на места по категориям +
         public DateTime DepatureDate { get; set; }
         public bool IsInnerFlight { get; set; } // признак внутреннего рейса (true - внутри страны, false - зарубежный)
         public int RouteId { get; set; }
@@ -71,7 +83,7 @@
     public class SeatCategory
     {
         public int Id { get; set; }
-        public string Category { get; set; } // эконом или бизнес
+        public bool Category { get; set; } // эконом или бизнес
     }
     public class Ticket
     {
@@ -84,14 +96,4 @@
         public bool IsReserved { get; set; }
 
     }
-    /*public class Seat
-    {
-        public int Id { get; set; }
-        public int TotalSeats { get; set; } // общее кол-во мест
-        public string SeatCategory { get; set; } // категория места (бизнес, эконом)
-        public int SoldSeats { get; set; } // кол-во проданных мест
-        public int ReservedSeats { get; set; } // кол-во забронированных мест
-        public Ticket Ticket { get; set; }
-        public int TicketId { get; set; }
-    }*/
 }

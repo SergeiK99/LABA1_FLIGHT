@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LABA1_FLIGHT;
 
 namespace LABA1_FLIGHT
 {
@@ -29,7 +30,11 @@ namespace LABA1_FLIGHT
         {
             using (FlightModel model = new FlightModel())
             {
-                model.Tickets.ToArray();
+                Destination destination = new Destination();
+                destination.CityName = "Moscow";
+                model.Destinations.Add(destination);
+                model.SaveChanges();
+                //model.Tickets.ToArray();
             }
 
         }
