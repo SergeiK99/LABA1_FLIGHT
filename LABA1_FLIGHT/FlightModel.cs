@@ -11,12 +11,6 @@
 
     public class FlightModel : DbContext
     {
-        // Контекст настроен для использования строки подключения "FlightModel" из файла конфигурации  
-        // приложения (App.config или Web.config). По умолчанию эта строка подключения указывает на базу данных 
-        // "LABA1_FLIGHT.FlightModel" в экземпляре LocalDb. 
-        // 
-        // Если требуется выбрать другую базу данных или поставщик базы данных, измените строку подключения "FlightModel" 
-        // в файле конфигурации приложения.
         public FlightModel()
             : base("name=FlightModel")
         {
@@ -26,18 +20,7 @@
         public virtual DbSet<Destination> Destinations { get; set; }
         public virtual DbSet<Flight> Flights { get; set; }
         public virtual DbSet<Route> Routes { get; set; }
-
-        // Добавьте DbSet для каждого типа сущности, который требуется включить в модель. Дополнительные сведения 
-        // о настройке и использовании модели Code First см. в статье http://go.microsoft.com/fwlink/?LinkId=390109.
-
-        // public virtual DbSet<MyEntity> MyEntities { get; set; }
     }
-
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
 
     public class Destination
     {
@@ -56,16 +39,10 @@
         public Route()
         {
             Destinations = new List<Destination>();
+            Flights = new List<Flight>();
         }
-
         //todo: коллекция Flight +
         public virtual ICollection<Flight> Flights { get; set; }
-        /*public Route()
-        {
-            Flights = new List<Flight>();
-        }*/
-        
-
     }
     public class Flight
     {
@@ -83,7 +60,7 @@
     public class SeatCategory
     {
         public int Id { get; set; }
-        public bool Category { get; set; } // эконом или бизнес
+        public bool Category { get; set; } // эконом t или бизнес f
     }
     public class Ticket
     {

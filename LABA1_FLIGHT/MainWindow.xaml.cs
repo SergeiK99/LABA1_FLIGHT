@@ -30,10 +30,10 @@ namespace LABA1_FLIGHT
         {
             using (FlightModel model = new FlightModel())
             {
-                Destination destination = new Destination();
-                destination.CityName = "Moscow";
-                model.Destinations.Add(destination);
-                model.SaveChanges();
+                //Destination destination = new Destination();
+                //destination.CityName = "Moscow";
+                //model.Destinations.Add(destination);
+                //model.SaveChanges();
                 //model.Tickets.ToArray();
             }
 
