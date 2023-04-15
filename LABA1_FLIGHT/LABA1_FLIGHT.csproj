@@ -74,7 +74,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FlightModel.cs" />
+    <Compile Include="Classes\Destination.cs" />
+    <Compile Include="Classes\Flight.cs" />
+    <Compile Include="Classes\FlightModel.cs" />
+    <Compile Include="Classes\Route.cs" />
+    <Compile Include="Classes\SeatCategory.cs" />
+    <Compile Include="Classes\Ticket.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -99,6 +104,11 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\LABA1_FLIGHT.Classes.Destination.datasource" />
+    <None Include="Properties\DataSources\LABA1_FLIGHT.Classes.Flight.datasource" />
+    <None Include="Properties\DataSources\LABA1_FLIGHT.Classes.Route.datasource" />
+    <None Include="Properties\DataSources\LABA1_FLIGHT.Classes.SeatCategory.datasource" />
+    <None Include="Properties\DataSources\LABA1_FLIGHT.Classes.Ticket.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,5 +117,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

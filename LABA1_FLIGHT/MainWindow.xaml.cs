@@ -38,5 +38,39 @@ namespace LABA1_FLIGHT
             }
 
         }
+
+        private void bt1_Click(object sender, RoutedEventArgs e)
+        {
+            if (numb1.Text == "")
+            {
+                MessageBox.Show("Вы не ввели номер рейса!");
+                return;
+            }
+            if (Dest.SelectedItem == null)
+            {
+                MessageBox.Show("Вы не выбрали пункт назначения!");
+                return;
+            }
+            if (Category.SelectedItem == null)
+            {
+                MessageBox.Show("Вы не выбрали категорию места!");
+                return;
+            }
+            if (ResSeats.Text == "")
+            {
+                MessageBox.Show("Вы не ввели число забронированных мест!"); 
+                return;
+            }
+            if (PursSeats.Text == "")
+            {
+                MessageBox.Show("Вы не ввели число купленных мест!"); 
+                return;
+            }
+            if (DateD.SelectedDate == null)
+            {
+                MessageBox.Show("Вы не выбрали дату отправления!");
+                return;
+            }
+        }
     }
 }

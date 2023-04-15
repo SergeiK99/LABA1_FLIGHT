@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <DataGrid HorizontalAlignment="Left" Height="125" Margin="0,284,0,0" VerticalAlignment="Top" Width="792"/>
+        <Label Content="Номер рейса" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Width="90" Height="27"/>
+        <TextBox x:Name="numb1" HorizontalAlignment="Left" Height="40" Margin="10,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"/>
+        <ComboBox x:Name="Dest" HorizontalAlignment="Left" Margin="120,59,0,0" VerticalAlignment="Top" Width="118" Height="40"/>
+        <Label Content="Пункт назначения" HorizontalAlignment="Left" Margin="120,27,0,0" VerticalAlignment="Top" Width="118" Height="27"/>
+        <Label Content="Категория места" HorizontalAlignment="Left" Margin="253,27,0,0" VerticalAlignment="Top" Width="118" Height="27"/>
+        <ComboBox x:Name="Category" HorizontalAlignment="Left" Margin="253,59,0,0" VerticalAlignment="Top" Width="118" Height="40"/>
+        <DatePicker x:Name="DateD" HorizontalAlignment="Left" Margin="388,59,0,0" VerticalAlignment="Top" Height="40" Width="118"/>
+        <Label Content="Дата отправления" HorizontalAlignment="Left" Margin="388,27,0,0" VerticalAlignment="Top" Width="118" Height="27" RenderTransformOrigin="1.195,0.493"/>
+        <Label Content="Число забронированных мест" HorizontalAlignment="Left" Margin="522,27,0,0" VerticalAlignment="Top" Width="185" Height="27" RenderTransformOrigin="1.195,0.493"/>
+        <TextBox x:Name="ResSeats" HorizontalAlignment="Left" Height="40" Margin="522,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <Label Content="Число купленных мест" HorizontalAlignment="Left" Margin="522,116,0,0" VerticalAlignment="Top" Width="185" Height="27" RenderTransformOrigin="1.195,0.493"/>
+        <TextBox x:Name="PursSeats" HorizontalAlignment="Left" Height="40" Margin="522,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+        <CheckBox x:Name="Inner" Content="Внутренний рейс ?" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Height="38" Width="129"/>
+        <CheckBox x:Name="Reserved" Content="Продан или забронирован" HorizontalAlignment="Left" Margin="161,148,0,0" VerticalAlignment="Top" Height="40" Width="180"/>
+        <Button x:Name="bt1" Content="Вывод" HorizontalAlignment="Left" Margin="311,243,0,0" VerticalAlignment="Top" Width="129" Height="36" Click="bt1_Click"/>
+
     </Grid>
 </Window>
