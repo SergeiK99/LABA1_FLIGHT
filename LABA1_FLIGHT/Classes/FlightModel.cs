@@ -12,6 +12,18 @@
 
     public class FlightModel : DbContext
     {
+        private static FlightModel _instance;
+        public static FlightModel Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new FlightModel();
+                }
+                return _instance;
+            }
+        }
         public FlightModel()
             : base("name=FlightModel")
         {

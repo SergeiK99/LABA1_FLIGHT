@@ -1,0 +1,23 @@
+﻿<Window x:Class="LABA1_FLIGHT.View.AddFlight"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LABA1_FLIGHT.View"
+        mc:Ignorable="d"
+        Title="AddFlight" Height="450" Width="800">
+    <Grid>
+        <Label Content="Число забронированных мест:" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="291" Height="47" RenderTransformOrigin="1.195,0.493" FontSize="20"/>
+        <TextBox x:Name="ResSeats" HorizontalAlignment="Left" Height="40" Margin="54,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" FontSize="16"/>
+        <Label Content="Число купленных мест:" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Width="229" Height="47" RenderTransformOrigin="1.195,0.493" FontSize="20"/>
+        <TextBox x:Name="PursSeats" HorizontalAlignment="Left" Height="40" Margin="54,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" FontSize="16"/>
+        <DatePicker x:Name="DateD" HorizontalAlignment="Left" Margin="317,128,0,0" VerticalAlignment="Top" Height="40" Width="181" FontSize="16"/>
+        <Label Content="Дата отправления" HorizontalAlignment="Left" Margin="317,76,0,0" VerticalAlignment="Top" Width="181" Height="47" RenderTransformOrigin="1.195,0.493" FontSize="20"/>
+        <CheckBox x:Name="Inner" Content="Внутренний рейс ?" HorizontalAlignment="Left" Margin="300,246,0,0" VerticalAlignment="Top" Height="38" Width="198" FontSize="20"/>
+        <Label Content="Добавление рейсов" HorizontalAlignment="Left" Margin="222,10,0,0" VerticalAlignment="Top" Width="387" Height="61" FontWeight="Bold" FontSize="36"/>
+        <Button x:Name="btSave" Content="Save" HorizontalAlignment="Left" Margin="232,335,0,0" VerticalAlignment="Top" Width="123" Height="57" FontSize="36" Click="btSave_Click"/>
+        <Button x:Name="btCancel" Content="Cancel" HorizontalAlignment="Left" Margin="460,335,0,0" VerticalAlignment="Top" Width="123" Height="57" FontSize="36" Click="btCancel_Click"/>
+        <Label Content="Номер пути" HorizontalAlignment="Left" Margin="545,76,0,0" VerticalAlignment="Top" Width="181" Height="47" RenderTransformOrigin="1.195,0.493" FontSize="20"/>
+
+    </Grid>
+</Window>
