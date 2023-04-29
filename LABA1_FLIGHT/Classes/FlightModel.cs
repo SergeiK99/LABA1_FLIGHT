@@ -15,7 +15,7 @@
         private static FlightModel _instance;
         public static FlightModel Instance
         {
-            get
+            get 
             {
                 if (_instance == null)
                 {
@@ -23,8 +23,9 @@
                 }
                 return _instance;
             }
+            
         }
-        public FlightModel()
+        private FlightModel()
             : base("name=FlightModel")
         {
         }

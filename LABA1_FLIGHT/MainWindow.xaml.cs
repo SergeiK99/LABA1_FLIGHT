@@ -24,17 +24,18 @@ namespace LABA1_FLIGHT
     public partial class MainWindow : Window
     {
         FlightModel db = FlightModel.Instance;
+        public Ticket ticket { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            cbDest.ItemsSource = db.Destinations.ToArray();
+            cbDest.ItemsSource = db.Flights.ToArray();
             cbCategory.ItemsSource = db.SeatCategories.ToList();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            using (FlightModel model = new FlightModel())
-            {
+            //using (FlightModel model = new FlightModel())
+            //{
                 // Добавление
                 //Destination destination = new Destination();
                 //destination.CityName = "Moscow";
@@ -53,7 +54,7 @@ namespace LABA1_FLIGHT
                 {
                     cbCategory.Items.Add(category.Category);
                 }*/
-            }
+            //}
 
         }
 
@@ -69,19 +70,34 @@ namespace LABA1_FLIGHT
                 MessageBox.Show("Вы не выбрали категорию места!");
                 return;
             }
-            //db.Tickets(cbCategory.SelectedItem,)
+            if(Reserved.IsChecked == true)
+            {
+                ticket.IsReserved = true;
+            }
+            else { ticket.IsReserved = false; }
+            ticket.SeatCategory = cbCategory.SelectedItem as SeatCategory;
+            ticket.Flight = cbDest.SelectedItem as Flight;
+            db.Tickets.Add(ticket);
+            db.SaveChanges();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e) // Добавление категорий мест
         {
             AddSC form = new AddSC();
             form.ShowDialog();
+            cbCategory.ItemsSource = db.SeatCategories.ToList();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e) // Добавление рейсов
         {
             AddFlight form = new AddFlight();
             form.ShowDialog();
+            cbDest.ItemsSource = db.Flights.ToArray();
+        }
+
+        private void bt2_Click(object sender, RoutedEventArgs e) //Вывод Tickets в dgTickets
+        {
+
         }
     }
 }

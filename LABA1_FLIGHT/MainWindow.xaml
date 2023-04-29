@@ -5,26 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LABA1_FLIGHT"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid>
-        <DataGrid HorizontalAlignment="Left" Height="125" Margin="0,284,0,0" VerticalAlignment="Top" Width="792"/>
-        <ComboBox x:Name="cbDest" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="172" Height="40"/>
+        Title="MainWindow" Height="450" Width="923" Loaded="Window_Loaded">
+    <Grid Margin="0,0,0,-6">
+        <DataGrid x:Name="dgTickets" HorizontalAlignment="Center" Height="150" Margin="0,284,0,0" VerticalAlignment="Top" Width="918">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер рейса"/>
+                <DataGridTextColumn Header="Пункт назначения"/>
+                <DataGridTextColumn Header="Категория места"/>
+                <DataGridTextColumn Header="Дата отправления"/>
+                <DataGridTextColumn Header="Признак внутреннего рейса"/>
+                <DataGridTextColumn Header="Число заб. мест"/>
+                <DataGridTextColumn Header="Число куп. мест"/>
+                <DataGridTextColumn Header="Забронирован ?"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="cbDest" DisplayMemberPath ="FlightNumber"  HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="172" Height="40"/>
         <Label Content="Категория места:" HorizontalAlignment="Left" Margin="209,51,0,0" VerticalAlignment="Top" Width="172" Height="42" FontSize="20"/>
-        <ComboBox x:Name="cbCategory" HorizontalAlignment="Left" Margin="209,93,0,0" VerticalAlignment="Top" Width="172" Height="40"/>
+        <ComboBox x:Name="cbCategory" DisplayMemberPath="Category"  HorizontalAlignment="Left" Margin="209,93,0,0" VerticalAlignment="Top" Width="172" Height="40"/>
         <CheckBox x:Name="Reserved" Content="Продан или забронирован" HorizontalAlignment="Left" Margin="417,72,0,0" VerticalAlignment="Top" Height="40" Width="280" FontSize="20"/>
-        <Button x:Name="bt1" Content="Вывод" HorizontalAlignment="Left" Margin="0,241,0,0" VerticalAlignment="Top" Width="792" Height="43" Click="bt1_Click" FontSize="24" FontStyle="Italic"/>
-        <ToolBar HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="792">
-            <Menu x:Name="scMenu" Height="51" VerticalAlignment="Top" Width="544" FontSize="16" Margin="0,0,0,-5">
+        <Button x:Name="bt1" Content="Сохранение" HorizontalAlignment="Center" Margin="0,186,0,0" VerticalAlignment="Top" Width="918" Height="43" Click="bt1_Click" FontSize="24" FontStyle="Italic"/>
+        <ToolBar HorizontalAlignment="Center" Height="51" VerticalAlignment="Top" Width="919">
+            <Menu x:Name="scMenu" Height="51" VerticalAlignment="Top" Width="610" FontSize="16">
                 <MenuItem Header="Категория места" RenderTransformOrigin="0.437,0.834" Height="46" Width="140">
                     <MenuItem x:Name="scMenu1" Header="Добавить" Click="MenuItem_Click"/>
+                    <MenuItem x:Name="SClist" Header="Список"/>
                 </MenuItem>
                 <MenuItem Width="109" Header="Рейсы" Height="42" Margin="0">
                     <MenuItem Header="Добавить" Click="MenuItem_Click_1"/>
                     <MenuItem Header="Список"/>
                 </MenuItem>
+                <MenuItem x:Name="CityAndRoute" RenderTransformOrigin="0.5,0.5" Width="119" Header="Города и пути">
+                    <MenuItem.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </MenuItem.RenderTransform>
+                    <MenuItem x:Name="AddCity" Header="Добавить города"/>
+                    <MenuItem x:Name="AddRoute" Header="Добавить пути"/>
+                    <MenuItem x:Name="ListCity" Header="Список городов"/>
+                    <MenuItem x:Name="ListRoute" Header="Список путей"/>
+                </MenuItem>
             </Menu>
         </ToolBar>
         <Label Content="Рейс:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="172" Height="42" FontSize="20"/>
+        <Button x:Name="bt2" Content="Вывод" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" Width="918" Height="45" FontSize="24" FontStyle="Italic" Click="bt2_Click"/>
 
     </Grid>
 </Window>

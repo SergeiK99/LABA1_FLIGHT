@@ -10,6 +10,8 @@ namespace LABA1_FLIGHT.Classes
     public class Flight
     {
         public int Id { get; set; }
+        [Required, MaxLength(20)]
+        public string FlightNumber { get; set; }
         [Required, Range(1, 900)]
         public int PurchasedSeats { get; set; }
         [Required, Range(1, 900)]
